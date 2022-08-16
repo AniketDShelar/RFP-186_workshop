@@ -2,6 +2,9 @@ package com.bridgelabz.tictactoe;
 import java.util.Scanner;
 public class TicTacToeGame {
     public static void main(String[] args) {
+        System.out.println("Start the game");
+        System.out.println("----------------");
+        tossUp();
         initializeBoard();
         choice();
         printBoard();
@@ -18,8 +21,7 @@ public class TicTacToeGame {
             }
         }
         static void choice(){
-            System.out.println("-----Start the game-----");
-            System.out.println("Choose 'X' or 'O'");
+            System.out.println("Choose :: 'X' or 'O' : ");
             Scanner scan = new Scanner(System.in);
             playerLetter = scan.next().charAt(0);
             computerLetter = (playerLetter == 'X') ? 'O' : 'X';
@@ -59,9 +61,18 @@ public class TicTacToeGame {
             }
             if(isSpaceAvailable == false) {
                 System.out.println("Board is full. You can't make another move");
-            }else{
+            }else {
                 System.out.println(numOfFreeSpace+ " spaces available");
         }
+    }
+    static void tossUp(){
+            int heads = 0;
+            int toss = (int)Math.floor(Math.random() * 10) / 2;
+            if(toss == heads){
+                System.out.println("User turn first");
+            }else{
+                System.out.println("Computer turn first");
+            }
     }
 }
 
