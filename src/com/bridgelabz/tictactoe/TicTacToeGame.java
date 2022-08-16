@@ -20,9 +20,22 @@ public class TicTacToeGame {
             playerLetter = scan.next().charAt(0);
             computerLetter = (playerLetter == 'X') ? 'O' : 'X';
         }
+        static void printBoard(){
+            System.out.println(board[1]+" | "+board[2]+" | "+board[3]);
+            System.out.println("----------");
+            System.out.println(board[4]+" | "+board[5]+" | "+board[6]);
+            System.out.println("----------");
+            System.out.println(board[7]+" | "+board[8]+" | "+board[9]);
+            System.out.println("----------");
+        }
+        static void selectIndex(){
+            System.out.println("Select Index ");
+        }
     public static void main(String[] args) {
         initializeBoard(board);
         choice();
+        printBoard();
+
     }
 }
 
