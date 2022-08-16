@@ -1,14 +1,18 @@
 package com.bridgelabz.tictactoe;
-
-
 import java.util.Scanner;
-
 public class TicTacToeGame {
+    public static void main(String[] args) {
+        initializeBoard();
+        choice();
+        printBoard();
+        userChoiceOfIndex();
+    }
 
         static char[] board = new char[10];
         static char playerLetter;
         static char computerLetter;
-        private static void initializeBoard(char[] board) {
+        static int index;
+        private static void initializeBoard() {
             for(int i=1; i<board.length;i++) {
                 board[i] = ' ';
             }
@@ -28,14 +32,20 @@ public class TicTacToeGame {
             System.out.println(board[7]+" | "+board[8]+" | "+board[9]);
             System.out.println("----------");
         }
-        static void selectIndex(){
-            System.out.println("Select Index ");
+        static void userChoiceOfIndex() {
+            Scanner scan = new Scanner(System.in);
+            System.out.println("Enter location from 1 to 9 ");
+            int location = scan.nextInt();
+            if(location < 1 && location > 10){
+                System.out.println("Enter valid location");
+            }else if(board[location] != ' '){
+                System.out.println("You have already chosen this location, Please enter valid location");
+                userChoiceOfIndex();
+            }else{
+                board[location] = playerLetter;
+                printBoard();
+                userChoiceOfIndex();
+            }
         }
-    public static void main(String[] args) {
-        initializeBoard(board);
-        choice();
-        printBoard();
-
-    }
 }
 
